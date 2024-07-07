@@ -1,0 +1,34 @@
+<div class="main-container">
+  <div class="card-group col-md-10 col-lg-8 col-xl-6 mx-auto content">
+
+      <div class="card bg-purple d-none d-sm-block text-light border-0">
+        <div class="card-body">
+          <h5 class="card-title">Welcome back!</h5>
+          <p>Make sure you're logged in to get access to exclusive offers, rewards, and discounts.</p>
+          Dont have an account? 
+          <br><a routerLink="/signup" class="text-info" role="button">Create new account</a>
+        </div>
+      </div>
+
+      <div class="card col-8 col-6 signin-container mx-auto fw-bold">
+          <div class="card-body">
+            <h5 class="card-title">Sign In</h5>
+            <div>
+              <div class="mb-3">
+                <label class="form-label">Email address</label>
+                <input type="text" class="form-control" id="email" [(ngModel)]="email" name="email" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required>
+              </div>
+                <button (click)="signIn()" class="btn bg-purple text-light w-100">Sign In</button>
+                <a routerLink="/signup" class="d-sm-none">Create new account</a>
+            </div>
+            <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+          </div>
+      </div>
+
+  </div>
+</div>
+

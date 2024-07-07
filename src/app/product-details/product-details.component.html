@@ -1,0 +1,147 @@
+<div class="container-fluid text-purple mb-5" *ngIf="product; else loading">
+
+  <div class="row mt-5 mb-5 row-gap-5">
+    <div class="col-12 col-md-4 col-lg-6">
+      <div class="w-100 justify-content-center d-flex">
+        <img [src]="product.image" alt="{{ product!.name }}">
+      </div>
+    </div>
+    <div class="col-10 col-md-8 col-lg-6 mx-auto">
+      <h1>{{ product!.name }}</h1>
+      <hr>
+      <div class="d-flex text-center align-items-center gap-2">
+        <h4 class="w-25 m-0 text-black">${{ product!.price }}</h4>
+        <div class="w-25 d-flex align-items-center justify-content-center btn border rounded-pill">
+          <div><i class="bi bi-dash"></i></div>
+          <div class="w-50"><span>1</span></div>
+          <div><i class="bi bi-plus"></i></div>
+        </div>
+        <div class="w-50 btn border-0 rounded-pill text-light bg-violet">ADD TO CART</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row row-gap-4" *ngIf="product?.priceAfterPromotion">
+    <div class="col-12 col-lg-6 p-md-5 p-lg-0">
+      <div class="card p-3">
+        <!-- <i class="bi bi-check-circle-fill"></i> -->
+        <h5 class="fw-bold"><i class="bi bi-toggle-on me-1"></i>Buy 3 get 1</h5>
+
+        <div class="card border-0 mt-3 mb-3">
+          <div class="row g-0 align-items-center">
+            <div class="col-3 w-25 h-25 bg-body-secondary">
+              <img class="img-fluid" [src]="product!.image" [alt]="product!.name">
+            </div>
+            <div class="col-9">
+              <div class="card-body">
+                <h5 class="card-title">{{ product!.name }}</h5>
+                <p class="card-text">{{ product!.description }}</p>
+                <p class="card-text fw-medium">${{ product!.price }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <small class="text-body-secondary"><i class="bi bi-exclamation-circle"></i> Discount will be applied at
+          checkout</small>
+
+        <div class="d-flex bg-body-secondary fw-medium p-2 mt-2">
+          <h5 class="me-auto ms-3">Total</h5>
+          <h5 class="ms-auto me-3">
+            <span class="text-secondary text-decoration-line-through">${{ product!.priceBeforePromotion }}</span>
+            <span class="ms-2">${{ product!.priceAfterPromotion }}</span>
+          </h5>
+        </div>
+        <button class="bg-black border-0 text-light fw-medium p-2 mt-2">
+          <h5 class="mx-auto">Add bundle to cart | Save 5%</h5>
+        </button>
+
+      </div>
+    </div>
+    <!-- <div class="col-12 col-lg-6">
+      <div class="card p-3">
+        <h5 class="fw-bold">Lash Primer and Lash Princes Set</h5>
+
+        <div class="card border-0 mt-3 mb-3">
+          <div class="row g-0 align-items-center">
+            <div class="col-3 w-25 h-25 bg-body-secondary">
+              <img class="img-fluid" src="https://essencemakeup.com/cdn/shop/products/Lash_Prince_False_Lash_Mascara_Open_500x500_crop_center.png?v=1569287284" alt="...">
+            </div>
+            <div class="col-9">
+              <div class="card-body">
+                <h5 class="card-title">Lash Primer and Lash mascara</h5>
+                <p class="card-text">black / cruelty-free, gluten-free, paraben-free, most-loved, oil-free, award-winner</p>
+                <p class="card-text fw-medium">$4.99</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="card border-0 mb-3">
+          <div class="row g-0 align-items-center">
+            <div class="col-3 w-25 h-25 bg-body-secondary">
+              <img class="img-fluid" src="https://cdn.shopify.com/s/files/1/1115/2926/products/volume_booster_lash_primer_open_245x245_crop_center.png?v=1581112129" alt="...">
+            </div>
+            <div class="col-9">
+              <div class="card-body">
+                <h5 class="card-title">volume booster lash primer</h5>
+                <p class="card-text">01|white / vegan, paraben-free, cruelty-free</p>
+                <p class="card-text fw-medium">$4.99</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <small class="text-body-secondary"><i class="bi bi-exclamation-circle"></i> Discount will be applied at checkout</small>
+
+        <div class="d-flex bg-body-secondary fw-medium p-2 mt-2">
+          <h5 class="me-auto ms-3">Total</h5>
+          <h5 class="ms-auto me-3">
+            <span class="text-danger text-decoration-line-through">$9.98</span>
+            <span class="text-success ms-2">$9.48</span>
+          </h5>
+        </div>
+        <button class="bg-black border-0 text-light fw-medium p-2 mt-2">
+          <h5 class="mx-auto">Add bundle to cart | Save 5%</h5>
+        </button>
+
+      </div>
+    </div> -->
+
+  </div>
+
+  <div class="row mt-5">
+    
+    <div class="text-center">
+      <button class="btn bg-purple w-auto mb-4 mt-3" (click)="fetchSimilarProducts(product!.type)">
+        <h3 class="text-light">
+          Related Products <i class="bi bi-caret-down-fill"></i>
+        </h3>
+      </button>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-3" *ngFor="let p of similarProducts | slice:0:productsToShow">
+      <app-product-card 
+        [product]="p"
+        [routerLink]="['/product', p._id]">
+      </app-product-card>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 text-center">
+      <button *ngIf="similarProducts.length > productsToShow" class="btn text-purple mt-3" (click)="showMoreProducts()">
+        Show More <i class="bi bi-caret-down-fill"></i>
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<ng-template #loading>
+  <p>Loading product details...</p>
+</ng-template>

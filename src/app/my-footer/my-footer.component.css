@@ -1,0 +1,37 @@
+.footer {
+    background-color: #aa198d;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    color: white;
+    font-weight: 500;
+}
+
+p {
+    color: rgb(230, 43, 255);
+    font-weight: 500;
+}
+
+.whatsapp-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #25D366;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
+}
+
+
+.whatsapp-icon:hover {
+    background-color: #20b357;
+    text-decoration: none;
+}
+
+i {
+    cursor: pointer;
+}

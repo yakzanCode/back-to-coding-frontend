@@ -1,0 +1,60 @@
+.bg-violet {
+    background-color: violet;
+}
+
+.bg-purple {
+    background-color: #aa198d;
+}
+
+.text-violet {
+    color: violet;
+}
+
+.text-purple {
+    color: #aa198d;
+}
+
+hr {
+    color: rgba(130, 130, 130, 0.4);
+}
+
+p a {
+    color: #b68aaedc;
+    font-weight: 400;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 14px;
+}
+
+i {
+    font-size: xx-large;
+    vertical-align: middle;
+}
+
+ul {
+    list-style: none;
+}
+
+.list-item {
+    cursor: pointer;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Small Devices (sm) */
+@media (min-width: 576px) {
+    .list-item {
+        font-size: 20px;
+    }
+}
+
+
+/* Medium Devices (md) */
+@media (min-width: 768px) {
+    p a {
+        font-size: 18px;
+    }
+
+    ul {
+        margin-top: 15vh;
+    }
+}

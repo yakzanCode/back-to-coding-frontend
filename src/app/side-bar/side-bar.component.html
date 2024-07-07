@@ -1,0 +1,43 @@
+<button type="button" class="btn-close d-flex ms-auto me-2 mt-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+<div class="offcanvas-header">
+  <span class="d-flex mx-auto offcanvas-title" id="offcanvasWithBothOptionsLabel">
+      <img style="padding: 0px; width: 40vh; height: 20vh;" src="assets/logofill.svg" alt="Brand Logo" width="100" height="100">
+  </span>
+</div>
+
+<div class="offcanvas-body text-purple">
+
+  <h3 role="button" data-bs-toggle="collapse" data-bs-target="#collapseBrands">
+    Brands<i class="bi bi-plus"></i>
+  </h3>
+  <ul class="list-group list-group-flush collapse mb-4" id="collapseBrands">
+    <li class="list-group-item" *ngFor="let brand of brands">
+        <span class="text-purple ms-3" 
+              [routerLink]="['/', brand]"
+              data-bs-dismiss="offcanvas"
+              role="button">
+              {{ brand }}
+        </span>
+    </li>
+  </ul>
+
+  <h3 role="button" data-bs-toggle="collapse" data-bs-target="#collapseCategories">
+    Categories<i class="bi bi-plus"></i>
+  </h3>
+  <ul class="list-group list-group-flush collapse" id="collapseCategories">
+    <li class="list-group-item" *ngFor="let category of categories">
+        <span class="text-purple ms-3" 
+              [routerLink]="['/', 'All', category]"
+              data-bs-dismiss="offcanvas"
+              role="button">
+              {{ category }}
+        </span>
+    </li>
+  </ul>
+</div>
+
+<div class="ms-4 d-flex gap-2">
+  <i (click)="navigateToProfile()" class="bi bi-person-fill text-purple fs-1"></i>
+  <i class="bi bi-bag-fill text-purple fs-1"></i>
+</div>

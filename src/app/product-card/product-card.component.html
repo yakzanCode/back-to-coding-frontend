@@ -1,0 +1,39 @@
+<div class="card border-0 h-100 position-relative">
+  <i 
+    class="bi bi-heart position-absolute top-0 end-0 me-3 text-purple"
+    (click)="toggleFavorite(product._id)" 
+    *ngIf="!isFavorite"
+    role="button">
+  </i>
+
+  <i 
+    class="bi bi-heart-fill position-absolute top-0 end-0 me-3 text-purple"
+    (click)="toggleFavorite(product._id)" 
+    *ngIf="isFavorite" 
+    role="button">
+  </i>
+
+  <!-- <i 
+    [ngClass]="{'bi-heart': !isFavorite, 'bi-heart-fill': isFavorite}"
+    class="bi position-absolute top-0 end-0 me-3"
+    (click)="toggleFavorite(product._id)" 
+    *ngIf="isFavorite" 
+    role="button">
+  </i> -->
+  
+    <img 
+      role="button" 
+      [src]="product.image" 
+      class="card-img-top" 
+      alt="{{ product.name }}"
+      (click)="transferProduct(product)"
+      [routerLink]="['/product', product._id]">
+      
+    <div class="card-body position-relative">
+      <h5 class="card-title m-2">{{ product.name }}</h5>
+      <p class="card-text m-2">$ {{ product.price }}</p>
+      <button class="bg-purple border-0 w-100">
+        <span class="text-light">Add to Cart</span>
+      </button>
+    </div>
+</div>

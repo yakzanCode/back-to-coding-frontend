@@ -1,0 +1,48 @@
+<div class="container-fluid">
+
+  <div class="row mt-1 mb-1">
+    <p class="ms-3 text-violet mt-0 mb-0">
+      <a [routerLink]="['/']">Home</a>
+      <span *ngIf="currentBrand">
+        <i class="bi bi-dot"></i> <a [routerLink]="['/', currentBrand]">{{ currentBrand }}</a>
+      </span>
+      <span *ngIf="currentCategory">
+        <i class="bi bi-dot"></i> <a [routerLink]="['/', currentBrand, currentCategory]">{{ currentCategory}}</a>
+      </span>
+      <span *ngIf="currentType">
+        <i class="bi bi-dot"></i> <a>{{ currentType }}</a></span>
+    </p>
+    <hr>
+  </div>
+
+
+  <div class="row">
+
+    <div class="d-flex col-12 col-md-3 col-lg-2">
+      <ul class="d-flex flex-md-column flex-wrap row-gap-2 column-gap-5 mx-auto">
+        <ng-container *ngIf="currentBrand">
+          <li class="list-item text-purple" *ngFor="let category of categories" [routerLink]="['/', currentBrand, category]">
+            {{category}}
+          </li>
+        </ng-container>
+        <ng-container *ngIf="currentCategory">
+          <li class="list-item text-purple" *ngFor="let type of types" [routerLink]="['/', currentBrand, currentCategory, type]">
+            {{type}}
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+
+    <!-- All Products -->
+    <div class="container col-12 col-md-9 col-lg-10">
+      <div class="row">
+        <div class="col-6 col-lg-4 col-xl-3 mb-3 p-3" *ngFor="let product of filteredProducts">
+          <app-product-card [product]="product"></app-product-card>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  
+</div>

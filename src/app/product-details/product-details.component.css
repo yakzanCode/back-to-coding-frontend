@@ -1,0 +1,19 @@
+.bg-purple {
+    background-color: #aa198d;
+}
+
+.bg-violet {
+    background-color: rgb(255, 35, 235);
+}
+
+.text-purple{
+    color: #aa198d;
+}
+
+.text-violet{
+    color: rgb(255, 35, 235);
+}
+
+.icon-div {
+    background-color: rgba(68, 68, 68, 0.507);
+}

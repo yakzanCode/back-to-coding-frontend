@@ -1,0 +1,19 @@
+<div class="container-fluid mt-3 mb-5">
+    <div class="card border-0 mx-auto" style="max-width: 600px;">
+        <div class="card-body">
+            <!-- <p class="card-text"><strong>Favorites:</strong> {{ currentUser?.favorites }}</p> -->
+            <h1 class="card-title">{{ currentUser?.fullname }}</h1>
+            <p class="card-text mt-4"><strong>Email:</strong> {{ currentUser?.email }}</p>
+            <button (click)="logout()" class="btn bg-violet text-light">Logout</button>
+            <span class="ms-4" role="button" routerLink="/favorites">My Favorites <i class="bi bi-heart-fill text-purple"></i>
+            </span>
+        </div>
+    </div>
+</div>
+
+<!-- Update Profile:
+<form (submit)="onSubmit()">
+    <input type="text" [(ngModel)]="currentUser.fullname" placeholder="Full Name" name="fullname" required />
+    <input type="email" [(ngModel)]="currentUser.email" placeholder="Email" name="email" required />
+    <button type="submit">Update Profile</button>
+</form> -->

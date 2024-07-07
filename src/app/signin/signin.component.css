@@ -1,0 +1,33 @@
+.bg-purple {
+    background-color: #aa198d;
+}
+
+.text-purple {
+    color: #aa198d;
+}
+
+.bg-pink {
+    background-color: rgb(107, 24, 75);
+}
+
+
+
+.main-container {
+    padding: 20vh 5vw;
+    background: url('https://img.freepik.com/premium-photo/abstract-background-cosmetic-products-close-up-makeup-texture-bright-sparkles-beauty_459897-6479.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.content {
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 0.25rem;
+}
+
+.signin-container {
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+}

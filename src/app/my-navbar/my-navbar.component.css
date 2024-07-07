@@ -1,0 +1,35 @@
+.bg-violet {
+    background-color: violet;
+}
+
+.text-purple {
+    color: #aa198d;
+}
+
+.bg-purple {
+    background-color: #aa198d;
+}
+
+.w-65 {
+    width: 65%;
+}
+
+.list-items {
+    font-weight: 700;
+    font-size: 17px;
+    margin: 0.7vw;
+}
+
+.offcanvas {
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
+
+/* Extra Extra Large Devices (xxl) */
+@media (min-width: 992px) {
+    .list-items {
+        font-size: 18px;
+        margin: 1.5vw;
+    }
+}

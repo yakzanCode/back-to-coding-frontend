@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
 import { DataService } from '../services/data.service';
 import { ProductsListComponent } from '../products-list/products-list.component';
 import { Product } from '../models/product.model';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { RouterLink } from '@angular/router';
 
-declare var $: any;
 
 @Component({
   selector: 'app-home',

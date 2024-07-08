@@ -1,34 +1,32 @@
-<!-- <div class="hero-section">
-    <div class="hero-content">
-        <h1>Welcome to Our Store</h1>
-        <p>Discover the best products at unbeatable prices.</p>
-        <button class="cta-button">Shop Now</button>
+<div class="hero-section">
+    <div class="hero-content p-3">
+        <div class="animated-products p-3">
+            <img *ngFor="let product of featuredProducts.slice(0, 4); let i = index" 
+                 [src]="product.image" 
+                 [@enterAnimation]="i"
+                 class="animated-product animated-product-{{i}}"
+                 alt="{{ product.name }}">
+          </div>
+          <h1 class="mb-1 mb-md-3 mb-lg-5">just</h1>
+          <h1 class="">dropped!</h1>
+        <!-- <button class="custom-button btn rounded-pill">Shop Now</button> -->
     </div>
-</div> -->
+</div>
 
 
-<div class="d-flex flex-column justify-content-center" style="height: 30vw;">
+<div class="d-flex flex-column justify-content-center h-auto pt-3 ">
     <ngx-slick-carousel #slickModel="slick-carousel" [config]="slideConfig">
         <div  class="slide" ngxSlickItem *ngFor="let product of featuredProducts">
-            <div class="w-auto mb-0">
+            <div class="mb-0 d-flex flex-column justify-content-center">
                 <img 
-                role="button" 
                 [src]="product.image" 
-                class=""
+                class="h-50 mx-auto"
                 style="object-fit: contain; max-width:70%;"
                 alt="{{ product.name }}"
                 (click)="transferProduct(product)"
                 [routerLink]="['/product', product._id]">
-                <p class="price" style="max-width:15vw; overflow-y: hidden;">{{product.name}}</p>
+                <p class="price text-center mx-auto mt-2">{{product.name}}</p>
             </div>
         </div>
     </ngx-slick-carousel>
 </div>
-
-
-<!-- <div class="testimonials-section">
-    <h2>What Our Customers Say</h2>
-    <app-testimonials></app-testimonials>
-  </div> -->
-
-<!-- <button class="back-to-top" (click)="scrollToTop()">↑</button> -->

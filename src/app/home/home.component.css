@@ -1,8 +1,73 @@
+.hero-section {
+    height: 80vh;
+    background: linear-gradient(to bottom, #aa198d, #ee43cc);
+    position: relative;
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 1rem;
+}
+
+.hero-content h1 {
+    font-size: 8vw;
+    color: aliceblue;
+    font-family: "Gloria Hallelujah", cursive;
+}
+
 .price {
+    max-width: 70%;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
+    font-family: "Times New Roman", Times, serif;
+    font-size: larger;
+    font-weight: 700;
+}
+
+.custom-button {
+    color: white;
+    background-color: rgb(255, 119, 255);
+    transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: #aa198d;
+}
+
+.animated-products {
+    position: relative;
+    height: 50vh;
+    width: 100vw;
+    /* overflow: hidden; */
+}
+
+.animated-product {
+    position: absolute;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.animated-product-0 {
+    top: 0;
+    left: 0;
+}
+
+.animated-product-1 {
+    bottom: 0;
+    left: 0;
+}
+
+.animated-product-2 {
+    top: 0;
+    right: 0;
+}
+
+.animated-product-3 {
+    bottom: 0;
+    right: 0;
 }

@@ -1,32 +1,376 @@
-<div class="hero-section">
-    <div class="hero-content p-3">
-        <div class="animated-products p-3">
-            <img *ngFor="let product of featuredProducts.slice(0, 4); let i = index" 
-                 [src]="product.image" 
-                 [@enterAnimation]="i"
-                 class="animated-product animated-product-{{i}}"
-                 alt="{{ product.name }}">
-          </div>
-          <h1 class="mb-1 mb-md-3 mb-lg-5">just</h1>
-          <h1 class="">dropped!</h1>
-        <!-- <button class="custom-button btn rounded-pill">Shop Now</button> -->
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+
+    <div style="z-index: 100;" class="carousel-indicators ms-auto text-start justify-content-start ps-3 ps-md-4">
+        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <video class="d-block w-100" autoplay loop muted>
+                <source src="../assets/hero1.mp4" type="video/mp4">
+            </video>
+            <div class="hero-content">
+                <img src="../assets/hero1svg.webp" [routerLink]="['/Maybelline/Eyes/Maskara']"
+                    alt="LASH SENSATIONAL FIREWORK  WASHABLE MASCARA MAKEUP">
+                <h2>Firework Maskara!</h2>
+                <p>Ready to firework it?</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <button [routerLink]="['/Essence/Eyes/Maskara']"
+                class="custom-button-fill mb-5 me-2 position-absolute end-0 bottom-0">Shop Now</button>
+            <img src="../assets/hero2.webp" alt="Essence Maskara">
+            <div class="hero-content mb-5">
+                <h1 class="mb-1 mb-md-3 mb-lg-5">just</h1>
+                <h1>dropped!</h1>
+
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <video class="d-block w-100" autoplay loop muted>
+                <source src="../assets/hero3.mp4" type="video/mp4">
+            </video>
+            <div class="hero-content">
+                <img src="../assets/hero3svg.webp" alt="Sunkisser Maybelline">
+                <h2>New! Sunkisser</h2>
+                <p>Multi-Use Liquid Blush and Bronzer.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-2 p-md-4 position-absolute bottom-0 end-0 text-light fs-2 fsw-normal">
+        <i class="bi bi-arrow-left-circle me-3 me-md-4" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev"></i>
+        <i class="bi bi-arrow-right-circle" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next"></i>
     </div>
 </div>
 
 
-<div class="d-flex flex-column justify-content-center h-auto pt-3 ">
+
+<!-- <div class="d-flex flex-column justify-content-center h-auto pt-3 pb-3">
+    <h1 class="title">Featured</h1>
     <ngx-slick-carousel #slickModel="slick-carousel" [config]="slideConfig">
-        <div  class="slide" ngxSlickItem *ngFor="let product of featuredProducts">
-            <div class="mb-0 d-flex flex-column justify-content-center">
-                <img 
-                [src]="product.image" 
-                class="h-50 mx-auto"
-                style="object-fit: contain; max-width:70%;"
-                alt="{{ product.name }}"
-                (click)="transferProduct(product)"
-                [routerLink]="['/product', product._id]">
+        <div class="slide featured" ngxSlickItem *ngFor="let product of featuredProducts">
+            <div class="mb-0 d-flex flex-column justify-content-center h-100">
+                <img [src]="product.image" class="mt-2 mx-auto"
+                    style="object-fit: contain; max-width:100%; max-height: 50%;" alt="{{ product.name }}">
                 <p class="price text-center mx-auto mt-2">{{product.name}}</p>
+                <button class="custom-button pt-2 pb-2" [routerLink]="['/product', product._id]"
+                    (click)="transferProduct(product)">
+                    Shop Now
+                </button>
             </div>
         </div>
     </ngx-slick-carousel>
+</div> -->
+
+<!-- <div class="d-flex flex-column justify-content-center h-auto pt-3 pb-3">
+    <h1 class="title">Featured</h1>
+    <ngx-slick-carousel #slickModel="slick-carousel" [config]="slideConfig">
+        <div class="slide featured" ngxSlickItem *ngFor="let product of featuredProducts">
+            <div class="mb-0 d-flex flex-column justify-content-center h-100">
+                <img [src]="product.image" class="mt-2 mx-auto"
+                    style="object-fit: contain; max-width:100%; max-height: 50%;" alt="{{ product.name }}">
+                <p class="price text-center mx-auto mt-2">{{product.name}}</p>
+                <button class="custom-button pt-2 pb-2" [routerLink]="['/product', product._id]"
+                    (click)="transferProduct(product)">
+                    Shop Now
+                </button>
+            </div>
+        </div>
+    </ngx-slick-carousel>
+</div> -->
+
+<!-- <div class="container mb-5">
+
+    <div class="row ">
+        <div class="col-6">
+            <img class="" style="object-fit: cover;"
+                src="https://edge.curalate.com/v1/img/_ct6ZGNIyRz6UEWfrKuziDOKL4MnJq1KvhywT4Npjm4=/sc/450x450?typ=webp"
+                alt="">
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <img class="img-fluid"
+                        src="https://edge.curalate.com/v1/img/O_XyzskvCFUAjlFjTmZ-kJxggwqqqLNnXXa504pVHw0=/sc/300x300?typ=webp"
+                        alt="">
+                </div>
+                <div class="col-12 col-lg-6">
+                    <img class="img-fluid"
+                        src="https://edge.curalate.com/v1/img/vufxIEKLok_XG9o6W9c8kjuakhVrnBwYM1S7aqArG1s=/sc/300x300?typ=webp"
+                        alt="">
+                </div>
+            </div>
+            <div class="row d-none d-lg-flex">
+                <div class="col-12 col-lg-6">
+                    <img class="img-fluid"
+                        src="https://edge.curalate.com/v1/img/O_XyzskvCFUAjlFjTmZ-kJxggwqqqLNnXXa504pVHw0=/sc/300x300?typ=webp"
+                        alt="">
+                </div>
+                <div class="col-12 col-lg-6">
+                    <img class="img-fluid"
+                        src="https://edge.curalate.com/v1/img/vufxIEKLok_XG9o6W9c8kjuakhVrnBwYM1S7aqArG1s=/sc/300x300?typ=webp"
+                        alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div> -->
+<!-- Carousel wrapper -->
+
+
+<div
+  id="carouselMultiItemExample"
+  data-mdb-carousel-init class="carousel slide carousel-dark text-center"
+  data-mdb-ride="carousel"
+>
+  <!-- Controls -->
+  <div class="d-flex justify-content-center mb-4">
+    <button data-mdb-button-init
+      class="carousel-control-prev position-relative"
+      type="button"
+      data-mdb-target="#carouselMultiItemExample"
+      data-mdb-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button data-mdb-button-init
+      class="carousel-control-next position-relative"
+      type="button"
+      data-mdb-target="#carouselMultiItemExample"
+      data-mdb-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- Inner -->
+  <div class="carousel-inner py-4">
+    <!-- Single item -->
+    <div class="carousel-item active">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
+                class="card-img-top"
+                alt="Waterfall"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk
+                  of the card's content.
+                </p>
+                <a href="#!" data-mdb-ripple-init class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 d-none d-lg-block">
+            <div class="card">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp"
+                class="card-img-top"
+                alt="Sunset Over the Sea"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk
+                  of the card's content.
+                </p>
+                <a href="#!" data-mdb-ripple-init class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 d-none d-lg-block">
+            <div class="card">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/new/standard/nature/183.webp"
+                class="card-img-top"
+                alt="Sunset over the Sea"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk
+                  of the card's content.
+                </p>
+                <a href="#!" data-mdb-ripple-init class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Single item -->
+    <div class="carousel-item">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-12">
+            <div class="card">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
+                class="card-img-top"
+                alt="Fissure in Sandstone"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk
+                  of the card's content.
+                </p>
+                <a href="#!" data-mdb-ripple-init class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 d-none d-lg-block">
+            <div class="card">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/new/standard/nature/185.webp"
+                class="card-img-top"
+                alt="Storm Clouds"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk
+                  of the card's content.
+                </p>
+                <a href="#!" data-mdb-ripple-init class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 d-none d-lg-block">
+            <div class="card">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/new/standard/nature/186.webp"
+                class="card-img-top"
+                alt="Hot Air Balloons"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk
+                  of the card's content.
+                </p>
+                <a href="#!" data-mdb-ripple-init class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Single item -->
+    <div class="carousel-item">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+            <div class="card">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/new/standard/nature/187.webp"
+                class="card-img-top"
+                alt="Peaks Against the Starry Sky"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk
+                  of the card's content.
+                </p>
+                <a href="#!" data-mdb-ripple-init class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4 mb-lg-0 d-none d-lg-block">
+            <div class="card">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/new/standard/nature/188.webp"
+                class="card-img-top"
+                alt="Bridge Over Water"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk
+                  of the card's content.
+                </p>
+                <a href="#!" data-mdb-ripple-init class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4 mb-lg-0 d-none d-lg-block">
+            <div class="card">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/new/standard/nature/189.webp"
+                class="card-img-top"
+                alt="Purbeck Heritage Coast"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to  on the card title and make up the bulk
+                  of the card's content.
+                </p>
+                <a href="#!" data-mdb-ripple-init class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Inner -->
 </div>
+<!-- Carousel wrapper -->
+
+<div style="height: 50vh;">
+    <div class="card text-bg-dark h-100 w-auto">
+        <img src="https://edge.curalate.com/v1/img/O_XyzskvCFUAjlFjTmZ-kJxggwqqqLNnXXa504pVHw0=/sc/300x300?typ=webp"
+         class="object-fit-cover" alt="...">
+        <div class="card-img-overlay d-flex justify-content-center">
+          <h5 class="fs-1 mt-auto">Card title</h5>
+        </div>
+    </div>
+    <div class="card text-bg-dark h-100 w-auto">
+        <img src="https://edge.curalate.com/v1/img/O_XyzskvCFUAjlFjTmZ-kJxggwqqqLNnXXa504pVHw0=/sc/300x300?typ=webp"
+         class="object-fit-cover" alt="...">
+        <div class="card-img-overlay">
+          <h5 class="">Card title</h5>
+        </div>
+    </div>
+    <div class="card text-bg-dark">
+        <img src="https://edge.curalate.com/v1/img/O_XyzskvCFUAjlFjTmZ-kJxggwqqqLNnXXa504pVHw0=/sc/300x300?typ=webp"
+         class="object-fit-cover" alt="...">
+        <div class="card-img-overlay">
+          <h5 class="">Card title</h5>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="animated-products ">
+            <img *ngFor="let product of featuredProducts.slice(0, 4); let i = index" 
+                 [src]="product.image" 
+                 class="animated-product animated-product-{{i}}"
+                 alt="{{ product.name }}">
+          </div> -->

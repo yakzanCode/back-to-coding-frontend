@@ -18,7 +18,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 export class HomeComponent implements OnInit{
   Products: Product[] = [];
   featuredProducts: Product[] = [];
-  brands: Set<string> = new Set();
+  Brands: Set<string> = new Set();
 
 
   constructor( private dataService: DataService){}
@@ -64,11 +64,20 @@ export class HomeComponent implements OnInit{
     .subscribe((products: Product[])=>{
       this.Products = products;
       this.filterFeaturedProducts();
+      this.extractBrands();
+    });
+  }
+
+  extractBrands() {
+    this.Products.forEach(product => {
+      if (product.brand) {
+        this.Brands.add(product.brand);
+      }
     });
   }
 
   filterFeaturedProducts(): void {
-    this.featuredProducts = this.Products.filter(product => product.featured);
+    this.featuredProducts = this.Products.filter(product => product.brand);
   }
 
   transferProduct(product: any) {

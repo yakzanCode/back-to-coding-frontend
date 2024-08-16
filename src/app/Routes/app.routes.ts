@@ -5,6 +5,7 @@ import { AuthGuard } from '../services/auth.guard';
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
+    // { path: '**', redirectTo: '' },
     { path: 'product/:id', loadComponent: () => import ('../product-details/product-details.component').then((c) => c.ProductDetailsComponent) },
     { path: 'signin', loadComponent: () => import ('../signin/signin.component').then((c) => c.SigninComponent) },
     { path: 'signup', loadComponent: () => import ('../signup/signup.component').then((c) => c.SignupComponent) },

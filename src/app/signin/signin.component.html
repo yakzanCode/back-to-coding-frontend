@@ -22,6 +22,8 @@
                 <label class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required>
               </div>
+            <button (click)="logout()" class="btn bg-violet text-light">Logout</button>
+
                 <button (click)="signIn()" class="btn bg-purple text-light w-100">Sign In</button>
                 <a routerLink="/signup" class="d-sm-none">Create new account</a>
             </div>

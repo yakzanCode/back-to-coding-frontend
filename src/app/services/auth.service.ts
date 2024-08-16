@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, catchError, tap  } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -24,26 +24,33 @@ export class AuthService {
 
   signup(email: string, password: string, fullname: string) {
     return this.http.post<any>(`${this.api}/auth/signup`, { email, password, fullname })
-      .pipe(map(response => {
-        return response;
-      }));
+    .pipe(map(response => response));
   }
   
   login(email: string, password: string) {
-    return this.http.post<any>(`${this.api}/auth/signin`, { email, password })
-      .pipe(map(user => {
+    return this.http.post<any>(`${this.api}/auth/signin`, { email, password }).pipe(
+        tap((response: any) => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        this.currentUserSubject.next(user);
-        return user;
-      }));
+        localStorage.setItem('currentUser', JSON.stringify(response.user));
+        localStorage.setItem('access_token', response.token);
+        this.currentUserSubject.next(response.user);
+      }),
+      catchError(this.handleError('signin', []))
+    );
   }
 
-  logout() {
-    // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
-    this.currentUserSubject.next(null);
+  logout(): void {
+    this.http.post<any>(`${this.api}/auth/logout`, {}).subscribe(() => {
+      localStorage.removeItem('currentUser');
+      localStorage.removeItem('access_token');
+      this.currentUserSubject.next(null);
+    },
+    error => {
+      console.error('Error during logout:', error);
+    }
+  );
   }
+
 
   addToFavorites(productId: string) {
     return this.http.post<any>(`${this.api}/users/favorites/${productId}`, {}).pipe(
@@ -71,5 +78,17 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     return !!this.currentUserValue;
+  }
+
+  // isAuthenticated(): boolean {
+  //   return !!localStorage.getItem('access_token');
+  // }
+
+  // Handle errors
+  private handleError(operation = 'operation', result?: any) {
+    return (error: any): Observable<any> => {
+      console.error(error);
+      return of(result as any);
+    };
   }
 }

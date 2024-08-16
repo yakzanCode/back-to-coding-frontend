@@ -80,6 +80,7 @@
 
 .brand-container img:hover {
     opacity: 0.5;
+    cursor: pointer;
 }
 
 .brand-title {

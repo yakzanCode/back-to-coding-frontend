@@ -17,7 +17,10 @@ export class SigninComponent {
   errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) { }
-
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/signin']);
+  }
   signIn() {    
     this.authService.login(this.email, this.password).subscribe({
       next: () => {
@@ -26,6 +29,12 @@ export class SigninComponent {
       error: (err: any) => {
         this.errorMessage = err.error.message;
       }
+      // () => {
+      //   this.router.navigate(['/']);
+      // },
+      // error => {
+      //   console.error('Login failed:', error);
+      // }
     });
   }
 }
